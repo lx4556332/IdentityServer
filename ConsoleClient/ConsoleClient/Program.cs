@@ -24,7 +24,7 @@ namespace ConsoleClient
                 Address=dicso.TokenEndpoint,
                 ClientId= "client",
                 ClientSecret= "511536EF-F270-4058-80CA-1C89C192F69A",
-                Scope= "api1 openid"
+                Scope= "api1"
             });
 
             if (tokenResponse.IsError)
@@ -35,7 +35,7 @@ namespace ConsoleClient
 
             var apiClient = new HttpClient();
             apiClient.SetBearerToken(tokenResponse.AccessToken);
-            var response = await apiClient.GetAsync(dicso.UserInfoEndpoint);
+            var response = await apiClient.GetAsync("http://localhost:5001/Identity");
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine(response.StatusCode);
