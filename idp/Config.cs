@@ -49,6 +49,25 @@ namespace idp
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile
                     }
+                },
+                new Client{
+                 ClientId="mvc client",
+                 ClientName="ASP.NET Core MVC Client",
+
+                 AllowedGrantTypes=GrantTypes.CodeAndClientCredentials,
+                 ClientSecrets={ new Secret("mvc secret".Sha256())},
+                 RedirectUris={"http://localhost:5002/signin-oidc"},
+                 FrontChannelLogoutUri="http://localhost:5002/signout-oidc",
+                 PostLogoutRedirectUris={ "http://localhost:5002/signout-callback-oidc"},
+
+                 AlwaysIncludeUserClaimsInIdToken=false,
+                 AllowOfflineAccess=true,
+
+                 AllowedScopes={ "api1",
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email
+                    }
                 }
             };
     }
