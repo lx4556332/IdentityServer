@@ -71,8 +71,10 @@ namespace MvcClient
 
             app.UseRouting();
 
+            //身份验证  顺序不可变
+            app.UseAuthentication();
+            //身份授权
             app.UseAuthorization();
-             
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
