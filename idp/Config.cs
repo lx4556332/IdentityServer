@@ -66,7 +66,7 @@ namespace idp
                     AlwaysIncludeUserClaimsInIdToken = true,
 
                     AllowOfflineAccess = true, // offline_access
-                    //AccessTokenLifetime = 60, // 60 seconds
+                    AccessTokenLifetime = 60, // 60 秒
 
                     AllowedScopes =
                     {
@@ -75,7 +75,8 @@ namespace idp
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Address,
                         IdentityServerConstants.StandardScopes.Phone,
-                        IdentityServerConstants.StandardScopes.Profile
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.OfflineAccess
                     }
                 }
             };

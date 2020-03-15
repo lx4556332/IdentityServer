@@ -33,6 +33,11 @@ namespace Api1Resource2
                     options.Authority="http://localhost:5000";
                     options.RequireHttpsMetadata = false;
                     options.Audience = "api1";
+
+                    //一分钟验证一次，且必须包含过期时间
+                    options.TokenValidationParameters.ClockSkew = TimeSpan.FromMinutes(1);
+                    options.TokenValidationParameters.RequireExpirationTime = true;
+
                 });
         }
 
